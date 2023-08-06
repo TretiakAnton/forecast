@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_splash_screen/easy_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:forecast/generated/assets.gen.dart';
 import 'package:forecast/generated/locale_keys.g.dart';
 import 'package:forecast/presentation/view/screens/home_screen.dart';
 
@@ -10,8 +11,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return EasySplashScreen(
-      logo: Image.network(
-          'https://w7.pngwing.com/pngs/546/46/png-transparent-weather-forecasting-severe-weather-storm-weather-free-text-heart-logo-thumbnail.png'),
+      logo: Image.asset(Assets.png.forecast.path),
       title: Text(
         LocaleKeys.forecast.tr(),
       ),

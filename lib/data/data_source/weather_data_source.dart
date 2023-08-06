@@ -24,7 +24,7 @@ class WeatherDataSource {
   Future<WeatherResponse> _fetchWeatherFromApi(WeatherRequest request) async {
     final url = Uri.parse(
         '$_baseUrl?lat=${request.lat}&lon=${request.lon}&exclude=minutely&units=metric&appid=$apiKey');
-    final response = await http.get(url);
+    final http.Response response = await http.get(url);
     return WeatherResponse.fromJson(jsonDecode(response.body));
   }
 

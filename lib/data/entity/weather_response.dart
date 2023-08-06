@@ -74,6 +74,27 @@ class WeatherResponse extends HiveObject {
       });
     }
   }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = {};
+    data['lat'] = lat;
+    data['lon'] = lon;
+    data['timezone'] = timezone;
+    data['timezone_offset'] = timezoneOffset;
+    if (current != null) {
+      data['current'] = current!.toJson();
+    }
+    if (hourly != null) {
+      data['hourly'] = hourly!.map((v) => v.toJson()).toList();
+    }
+    if (daily != null) {
+      data['daily'] = daily!.map((v) => v.toJson()).toList();
+    }
+    if (alerts != null) {
+      data['alerts'] = alerts!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
 }
 
 @HiveType(typeId: 1)
@@ -267,6 +288,37 @@ class Daily extends HiveObject {
     pop = json['pop'];
     rain = json['rain'];
     uvi = double.parse(json['uvi'].toString());
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = {};
+    data['dt'] = dt;
+    data['sunrise'] = sunrise;
+    data['sunset'] = sunset;
+    data['moonrise'] = moonrise;
+    data['moonset'] = moonset;
+    data['moon_phase'] = moonPhase;
+    data['summary'] = summary;
+    if (temp != null) {
+      data['temp'] = temp!.toJson();
+    }
+    if (feelsLike != null) {
+      data['feels_like'] = feelsLike!.toJson();
+    }
+    data['pressure'] = pressure;
+    data['humidity'] = humidity;
+    data['dew_point'] = dewPoint;
+    data['wind_speed'] = windSpeed;
+    data['wind_deg'] = windDeg;
+    data['wind_gust'] = windGust;
+    if (weather != null) {
+      data['weather'] = weather!.map((v) => v.toJson()).toList();
+    }
+    data['clouds'] = clouds;
+    data['pop'] = pop;
+    data['rain'] = rain;
+    data['uvi'] = uvi;
+    return data;
   }
 }
 

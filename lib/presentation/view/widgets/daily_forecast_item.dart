@@ -27,49 +27,53 @@ class _DailyForecastItemState extends State<DailyForecastItem> {
           isExpanded = !isExpanded;
         });
       },
-      child: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(20)),
-                border: Border.all(
-                  width: 1,
-                  color: Colors.grey,
-                )),
-            child: Row(
-              children: [
-                Text('${LocaleKeys.day.tr()}: '),
-                Text(_nameOfDay(widget.count)),
-                const Spacer(),
-                Text('${widget.model.temp!.day}°C'),
-              ],
-            ),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          border: Border.all(
+            width: 1,
+            color: Colors.grey,
           ),
-          Visibility(
-            visible: isExpanded,
-            child: Column(
-              children: [
-                Container(
-                  height: 1,
-                  width: double.infinity,
-                  color: Colors.grey,
-                ),
-                _detailsWidget(
-                  LocaleKeys.min.tr(),
-                  '${widget.model.temp!.min}°C',
-                ),
-                _detailsWidget(
-                  LocaleKeys.max.tr(),
-                  '${widget.model.temp!.max}°C',
-                ),
-                _detailsWidget(
-                  LocaleKeys.wind_speed.tr(),
-                  widget.model.windSpeed.toString(),
-                ),
-              ],
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Row(
+                children: [
+                  Text('${LocaleKeys.day.tr()}: '),
+                  Text(_nameOfDay(widget.count)),
+                  const Spacer(),
+                  Text('${widget.model.temp!.day}°C'),
+                ],
+              ),
             ),
-          ),
-        ],
+            Visibility(
+              visible: isExpanded,
+              child: Column(
+                children: [
+                  Container(
+                    height: 1,
+                    width: double.infinity,
+                    color: Colors.grey,
+                  ),
+                  _detailsWidget(
+                    LocaleKeys.min.tr(),
+                    '${widget.model.temp!.min}°C',
+                  ),
+                  _detailsWidget(
+                    LocaleKeys.max.tr(),
+                    '${widget.model.temp!.max}°C',
+                  ),
+                  _detailsWidget(
+                    LocaleKeys.wind_speed.tr(),
+                    widget.model.windSpeed.toString(),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

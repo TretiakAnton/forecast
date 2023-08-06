@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:forecast/data/entity/weather_response.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -17,10 +19,12 @@ class BoxManager {
   }
 
   Future<void> saveWeather(WeatherResponse response) async {
-    return await _weatherBox.put(_lastWeatherKey, response);
+    final json = response.toJson();
+    return await _weatherBox.put(_lastWeatherKey, jsonEncode(json));
   }
 
   WeatherResponse? getLastWeather() {
-    return _weatherBox.get(_lastWeatherKey);
+    final json = _weatherBox.get(_lastWeatherKey);
+    return WeatherResponse.fromJson(jsonDecode(json));
   }
 }
