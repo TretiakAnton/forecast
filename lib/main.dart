@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
-
-//import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:forecast/data/data_source/box_manager.dart';
+import 'package:forecast/data/data_source/firebase_api.dart';
 import 'package:forecast/forecast_app.dart';
 import 'package:forecast/localizatoin_widget.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -18,7 +18,8 @@ Future<void> main() async {
   await Future.wait([
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]),
   ]);
-  //await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp();
+  await FirebaseApi().initNotifications();
   await _initHive();
   runApp(const LocalizationWidget(widget: ForecastApp()));
 }

@@ -15,11 +15,11 @@ dependencies:
 
   flutter_bloc: ^7.1.0
 
-#  firebase_core: ^2.15.0
-#  firebase_auth: ^4.0.2
-#  firebase_core_platform_interface: 4.8.0
-#  firebase_messaging: ^14.0.2
-#  cloud_firestore: ^4.8.3
+  firebase_core: ^2.15.0
+  firebase_auth: ^4.0.2
+  firebase_core_platform_interface: 4.8.0
+  firebase_messaging: ^14.0.2
+  cloud_firestore: ^4.8.3
 
   auto_route: ^5.0.4
   easy_localization: ^3.0.1
