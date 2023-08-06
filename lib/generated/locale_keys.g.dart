@@ -13,5 +13,6 @@ abstract class  LocaleKeys {
   static const max = 'max';
   static const wind_speed = 'wind_speed';
   static const feels_like = 'feels_like';
+  static const log_in_with = 'log_in_with';
 
 }

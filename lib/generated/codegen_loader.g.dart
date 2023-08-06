@@ -26,7 +26,8 @@ class CodegenLoader extends AssetLoader{
   "min": "Min",
   "max": "Max",
   "wind_speed": "Wind speed",
-  "feels_like": "Feels like"
+  "feels_like": "Feels like",
+  "log_in_with": "Log in with"
 };
 static const Map<String,dynamic> ru_RU = {
   "forecast": "Прогноз погоды",
@@ -40,7 +41,8 @@ static const Map<String,dynamic> ru_RU = {
   "min": "Мин",
   "max": "Макс",
   "wind_speed": "Скорость ветра",
-  "feels_like": "Ощущается как"
+  "feels_like": "Ощущается как",
+  "log_in_with": "Войти с помощью"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en_US": en_US, "ru_RU": ru_RU};
 }

@@ -10,5 +10,6 @@
   "min": "Min",
   "max": "Max",
   "wind_speed": "Wind speed",
-  "feels_like": "Feels like"
+  "feels_like": "Feels like",
+  "log_in_with": "Log in with"
 }
